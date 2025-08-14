@@ -1,0 +1,62 @@
+{
+  "servers": {
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "laravel-boost": {
+            "command": "php",
+            "args": ["./artisan", "boost:mcp"]
+        },
+    "Neon": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://mcp.neon.tech/mcp"]
+    },
+    "supabase": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@supabase/mcp-server-supabase@latest",
+        "--read-only",
+        "--project-ref=<project-ref>"
+      ],
+      "env": {
+        "SUPABASE_ACCESS_TOKEN": "<personal-access-token>"
+      }
+    },
+     "MongoDB": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mongodb-mcp-server",
+        "--connectionString",
+        "mongodb://localhost:27017/myDatabase",
+        "--readOnly"
+      ]
+    },
+    "MongoDB": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mongodb-mcp-server",
+        "--apiClientId",
+        "your-atlas-service-accounts-client-id",
+        "--apiClientSecret",
+        "your-atlas-service-accounts-client-secret",
+        "--readOnly"
+      ]
+    },
+    "Prisma-Local": {
+      "command": "npx",
+      "args": ["-y", "prisma", "mcp"]
+    },
+    "Prisma-Remote": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://mcp.prisma.io/mcp"]
+    },
+     "sentry": {
+      "url": "https://mcp.sentry.dev/mcp"
+    }
+    
+  }
+}
